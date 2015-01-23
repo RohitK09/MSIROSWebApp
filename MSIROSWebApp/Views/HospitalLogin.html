@@ -7,7 +7,7 @@
     <title>Hospital Login</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,7 +25,7 @@
                 <div class="col-md-6 col-md-offset-5">
                     <label>Hospital Details</label>
                 </div>
-            </div>
+
 
         </div>
         <div class="row">
@@ -34,12 +34,12 @@
                       action="http://localhost:8080/MSIROSRestWebServices/Hospital/update">
                     <div class="form-group">
                         <label for="HospitalId">Hospital Id:</label>
-                        <input type="text" name="HospitalId" id="HospitalId"/>
-                        <button></button>
+                        <input class="form-control" type="text" name="HospitalId" id="HospitalId"/>
+                        <button class="form-control alert-danger" id="checkHospitalId" >Check Hospital ID</button>
                     </div>
-                    <div class="form-group">
+                    <div id ="noOfBedContainer"  class="form-group">
                         <label for="numberOfBeds">Total Number Of Beds Available:</label>
-                        <input class ="form-group" name="numberOfBeds" id="numberOfBeds" type="text" id="numberOfBeds">
+                        <input class="form-control"  name="numberOfBeds" id="numberOfBeds" type="text" >
 
                     </div>
                     <button id="submitFrm" type="submit" class="btn btn-default">Submit</button>
@@ -48,27 +48,28 @@
             </div>
         </div>
     </div>
-
+    </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.11.2.min.js"></script>
+<script src="../js/jquery-1.11.2.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <script>
-    $('#Login').click(function(){
-        var ambulanceProvider = $('#AmbulanceProviderName').val();
-        $.ajax({
-            url: "http://localhost:8080/MSIROSRestWebServices/Ambulance/"+ambulanceProvider
-        }).then(function(data) {
-            var obj = jQuery.parseJSON( data );
+    $("#noOfBedContainer").hide();
+    $('#checkHospitalId').click(function( event ) {
 
-            $.each(obj, function (index) {
-                // use data[index] in here
-                $('body').append('<li id="' + obj[index].vehicleNumber + '">' + obj[index].ambulanceType + '</li>');
-            });
+    var hospitalId = $('#HospitalId').val();
+        alert(hospitalId);
+        $.ajax({
+            url: "http://localhost:8080/MSIROSRestWebServices/Hospital/"+hospitalId
+        }).success(function(data) {
+            alert(data);
+            $("#noOfBedContainer").show();
             //$('.greeting-content').append(data.content);
         });
+        event.preventDefault();
     });
+
 </script>
 
 
