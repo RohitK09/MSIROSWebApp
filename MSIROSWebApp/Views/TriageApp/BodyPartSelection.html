@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <title>Body Part Selection</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../css/common.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="page-header" style="text-align: center ">Body Part Selection</div>
+        <img src="image/bodyPartSvg.svg" id="bodyPartSvg" style="display: block;margin: auto; height: 60%"/>
+
+        <button id="headBtn" class="bodyBtn">Head</button>
+
+    </div>
+
+    <div class="row center clearfix">
+        <button id="lefthandBtn" class="bodyBtn" value="left_hand">Left Hand</button>
+        <button id="torsoBtn" class="bodyBtn" value="torso">Torso</button>
+        <button id="righthandBtn" class="bodyBtn" value="right_hand">Right Hand</button>
+    </div>
+    <div class="row center">
+        <button id="leftlegBtn" class="bodyBtn" value="left_leg ">Left Leg</button>
+        <button id="rightlegBtn" class="bodyBtn" value="right_Leg">Right Leg</button>
+    </div>
+    <div class="row">
+        <input id="selectPartTxt" type="text" class=""/>
+    </div>
+</div>
+
+</body>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]-->
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="../../js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    console.log("inside");
+    document.body.addEventListener("click", function (event) {
+        console.log("hjh");
+        console.log(event.target.nodeName);
+        if (event.target.nodeName == "BUTTON")
+            console.log("Clicked", event.target.textContent);
+
+        $("#selectPartTxt").val(event.target.textContent);
+        sessionStorage.setItem("BodyPart",event.target.textContent);
+    });
+    $(document).ready(function () {
+       // alert($("#bodyPartSvg"));
+
+
+        //var  rect = document.getElementById("#bodyPartSvg").getBoundingClientRect(); // get the bounding rectangle
+
+        //console.log( rect.width );
+        //console.log( rect.height);
+
+
+      /*  $("#bodyPartSvg").click(function handleEvent(oEvent) {
+            var rect;
+
+            console.log(document.getElementById('bodyPartSvg').getBBox().position());
+            //var oTextbox = document.getElementById("txt1");
+            //oTextbox.value = "\n at (" + oEvent.screenX + "," + oEvent.screenY + ") on the screen";
+            console.log(oEvent.screenX + "-" + oEvent.screenY);
+        });*/
+    });
+</script>
+
+</html>

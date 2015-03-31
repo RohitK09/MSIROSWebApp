@@ -54,23 +54,7 @@
 <script src="../js/jquery-1.11.2.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../js/bootstrap.min.js"></script>
-<script>
-    $("#noOfBedContainer").hide();
-    $('#checkHospitalId').click(function( event ) {
-
-    var hospitalId = $('#HospitalId').val();
-        alert(hospitalId);
-        $.ajax({
-            url: "http://localhost:8080/MSIROSRestWebServices/Hospital/"+hospitalId
-        }).success(function(data) {
-            alert(data);
-            $("#noOfBedContainer").show();
-            //$('.greeting-content').append(data.content);
-        });
-        event.preventDefault();
-    });
-
-</script>
+<script src="../js/hospital/hospital.js"></script>
 
 
 </body>

@@ -1,0 +1,74 @@
+/*
+added on 25 th March 2015
+code added for centering images
+*/
+@import "bootstrap.min.css";
+.center
+{
+    text-align: center ;
+}
+#bodyPartSvg {
+    position:fixed;
+   /*top:0;*/
+    left:0;
+    width:100%;
+    height:100%;
+}
+#headBtn
+{  width: 100%;
+    height: 70px;
+}
+.bodyBtn
+{  margin: auto;
+    /*display: block;
+    position: relative;
+     top: -528px; */
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor:crosshair;
+    overflow: hidden;
+    outline: none;
+    opacity: 0.0;
+    padding: 0px;
+}
+#torsoBtn
+{
+
+    width: 20%;
+    height: 150px;
+    opacity: 0.0;
+    left:-0.1%;
+}
+#lefthandBtn {
+    /* top: -150px; */
+    left: -20%;
+    width: 18%;
+    height: 140px;
+    /* min-width: 3%; */
+    /* max-width: 5%; */
+}
+#righthandBtn {
+    /* top: -150px; */
+    right: -20%;
+    width: 18%;
+    height: 140px;
+    /* min-width: 3%; */
+    /* max-width: 5%; */
+}
+#leftlegBtn {
+    /* top: -150px; */
+    left: -20%;
+    width: 18%;
+    height: 140px;
+    /* min-width: 3%; */
+    /* max-width: 5%; */
+}
+#rightlegBtn {
+    /* top: -150px; */
+    right: -20%;
+    width: 18%;
+    height: 140px;
+    /* min-width: 3%; */
+    /* max-width: 5%; */
+}
